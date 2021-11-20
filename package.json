@@ -1,0 +1,24 @@
+{
+  "name": "fs-socket",
+  "version": "0.1.0",
+  "description": "A filesystem that connects between client and server using sockets",
+  "main": "index.js",
+  "scripts": {
+    "sample-server": "ts-node sample/server.ts",
+    "sample-client": "parcel sample/client/index.html"
+  },
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "@types/fs-extra": "^9.0.13",
+    "cuid": "^2.1.8",
+    "fs-extra": "^10.0.0",
+    "ws": "^8.2.3"
+  },
+  "devDependencies": {
+    "@types/ws": "^8.2.0",
+    "parcel": "^2.0.1",
+    "ts-node": "^10.4.0",
+    "typescript": "^4.4.4"
+  }
+}
