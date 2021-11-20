@@ -1,4 +1,4 @@
-import { Server } from '../lib/server'
+import { Server } from '../lib/server/server'
 import { SocketMessageLogin } from '../lib/types'
 
 async function start() {

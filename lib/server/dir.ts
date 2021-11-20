@@ -1,7 +1,7 @@
 import fs from 'fs-extra'
 import path from 'path'
 import { WebSocketUser } from './server'
-import { SocketMessageDir } from './types'
+import { SocketMessageDir } from '../types'
 import { validate } from './validate'
 
 async function readdir(dir: string, recursive: boolean, files: string[], directories: string[]) {

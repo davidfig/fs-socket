@@ -2,23 +2,33 @@
   "name": "fs-socket",
   "version": "0.1.0",
   "description": "A filesystem that connects between client and server using sockets",
-  "main": "index.js",
+  "browser": "dist/client.js",
+  "main": "dist/server.js",
+  "type": "module",
   "scripts": {
-    "sample-server": "ts-node sample/server.ts",
-    "sample-client": "parcel sample/client/index.html"
+    "build:server": "tsc lib/server/server.ts --declaration --target esnext --outDir dist --allowSyntheticDefaultImports --moduleResolution node",
+    "build:client": "esbuild lib/client.ts --bundle --outfile=dist/client.js --sourcemap --minify",
+    "build": "yarn build:server && yarn build:client",
+    "watch:client": "esbuild sample/client.ts --bundle --inject:./lib/client.ts --outfile=sample/public/index.js --sourcemap --watch",
+    "watch:server": "tsc sample/server.ts --outDir sample/server --declaration --target esnext --allowSyntheticDefaultImports --moduleResolution node -w",
+    "run:client": "live-server sample/public --port 1234",
+    "run:server": "ts-node-dev sample/server.ts",
+    "sample": "concurrently 'yarn:watch:server' 'yarn:watch:client' 'yarn:run:server' 'yarn:run:client'"
   },
-  "author": "",
+  "author": "David Figatner",
   "license": "MIT",
-  "dependencies": {
-    "@types/fs-extra": "^9.0.13",
-    "cuid": "^2.1.8",
-    "fs-extra": "^10.0.0",
-    "ws": "^8.2.3"
-  },
+  "dependencies": {},
   "devDependencies": {
+    "@types/fs-extra": "^9.0.13",
     "@types/ws": "^8.2.0",
-    "parcel": "^2.0.1",
-    "ts-node": "^10.4.0",
-    "typescript": "^4.4.4"
+    "ts-node-dev": "^1.1.8",
+    "concurrently": "^6.4.0",
+    "cuid": "^2.1.8",
+    "esbuild": "^0.13.14",
+    "fs-extra": "^10.0.0",
+    "live-server": "^1.2.1",
+    "nodemon": "^2.0.15",
+    "typescript": "^4.5.2",
+    "ws": "^8.2.3"
   }
 }

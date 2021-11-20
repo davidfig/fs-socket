@@ -9,7 +9,7 @@ import {
     SocketMessageReadFile,
     SocketMessageExists,
     SocketMessageWriteFile,
-} from './types'
+} from '../types'
 import { writeFile } from './writeFile'
 
 export interface FSSServerOptions {
@@ -53,6 +53,9 @@ export class Server {
             })
             ws.on('error', (e: Error) => console.warn(`Websocket error: ${e.message}`))
         })
+        if (this.options.debug) {
+            console.log(`fs-socket server listening on ${this.options.webSocketServerOptions?.host || 'http://localhost'}:${this.options.port}`)
+        }
     }
 
     handleMessage(ws: WebSocketUser, message: SocketMessageType) {

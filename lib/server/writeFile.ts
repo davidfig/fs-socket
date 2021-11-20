@@ -1,7 +1,7 @@
 import fs from 'fs-extra'
 import path from 'path'
 import { WebSocketUser } from './server'
-import { SocketMessageWriteFile } from './types';
+import { SocketMessageWriteFile } from '../types';
 import { validate } from './validate';
 
 export async function writeFile(ws: WebSocketUser, message: SocketMessageWriteFile, debug: boolean) {

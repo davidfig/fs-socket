@@ -1,7 +1,7 @@
 import fs from 'fs-extra'
 import path from 'path'
 import { WebSocketUser } from './server'
-import { SocketMessageReadFile } from './types';
+import { SocketMessageReadFile } from '../types';
 import { validate } from './validate';
 
 export async function readFile(ws: WebSocketUser, message: SocketMessageReadFile, debug: boolean) {

@@ -1,7 +1,7 @@
 import fs from 'fs-extra'
 import path from 'path'
 import { WebSocketUser } from './server'
-import { SocketMessageExists } from './types'
+import { SocketMessageExists } from '../types'
 import { validate } from './validate'
 
 export async function exists(ws: WebSocketUser, message: SocketMessageExists, debug: boolean) {
